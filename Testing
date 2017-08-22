@@ -17,3 +17,5 @@ var boodschappen = (function(){
         //  Invoerveld focus geven
         $('#txtItem').focus();
     });
+    
+    Hello
