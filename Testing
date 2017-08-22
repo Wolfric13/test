@@ -1,0 +1,19 @@
+var boodschappen = (function(){
+
+    $(document).ready(function(){
+        //  Event handler 'click' toevoegen aan de knop 'btnToevoegen'
+        $('#btnToevoegen').on('click', boodschappen.toevoegen);
+
+        //  Event handler 'click' toevoegen aan ALLE linken in de lijst
+        $('#boodschappenLijst > li > a').each(function () {
+            $(this).on('click', boodschappen.verwijder);
+        });
+
+        //  Event handler 'click' toevoegen aan ALLE checkboxen in de lijst
+        $('#boodschappenLijst > li > input[type=checkbox]').each(function () {
+            $(this).on('click', boodschappen.afVinken);
+        });
+
+        //  Invoerveld focus geven
+        $('#txtItem').focus();
+    });
