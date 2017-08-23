@@ -1,21 +1,86 @@
-var boodschappen = (function(){
 
-    $(document).ready(function(){
-        //  Event handler 'click' toevoegen aan de knop 'btnToevoegen'
-        $('#btnToevoegen').on('click', boodschappen.toevoegen);
-
-        //  Event handler 'click' toevoegen aan ALLE linken in de lijst
-        $('#boodschappenLijst > li > a').each(function () {
-            $(this).on('click', boodschappen.verwijder);
-        });
-
-        //  Event handler 'click' toevoegen aan ALLE checkboxen in de lijst
-        $('#boodschappenLijst > li > input[type=checkbox]').each(function () {
-            $(this).on('click', boodschappen.afVinken);
-        });
-
-        //  Invoerveld focus geven
-        $('#txtItem').focus();
-    });
-    
     Hello
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Lijst met inschrijvingen</title>
+
+        <link href="oefening1.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <fieldset>
+            <legend><h1>Opgave</h1></legend>
+            <p>Vervolledig onderstaande oefening waardoor gebruikers een lijst van inschrijvingen kunnen bijhouden.</p>
+            <p>De website moet voldoen aan volgende regels:
+                <ul>
+                    <li>Er mag <strong>GEEN</strong> JavaScript-code in het HTML bestand staan.</li>
+                    <li>De JavaScript-code moet <strong>automatisch</strong> uitgevoerd worden dmv een <strong>IIFE</strong></li>
+                    <li>Bij het klikken op de knop “Toevoegen” moet je controleren of er een voor- en achternaam ingevuld is. Indien dit niet het geval is moet je een boodschap weergeven<br />
+                    <img src="alert.png" /></li>
+                    <li>Indien alle gegeven correct ingevuld zijn moet je een nieuwe rij toevoegen aan de tabel.</li>
+                    <li>Bij het klikken op de link “Uitschrijven” dient de classe “Uitgeschreven” toegepast te worden op de bijhorende <strong>RIJ</strong></li>
+                    <li>Ook moet de link uitschrijven verwijderd worden uit de DOM</li>
+                </ul>
+            </p>
+            <h2>Voorbeeld</h2>
+            <img src="example.png" />
+        </fieldset>
+
+        <h1>Studenten administratie</h1>
+
+        <fieldset>
+            <legend>Inschrijving toevoegen</legend>
+
+            <p>
+                <label for="txtVoornaam">
+                    Voornaam :
+                    <input id="txtVoornaam" type="text" />
+                </label>
+            </p>
+            <p>
+                <label for="txtAchternaam">
+                    Achternaam :
+                    <input id="txtAchternaam" type="text" />
+                </label>
+            </p>
+            <p>
+                <label for="ddlModule">
+                    Module :
+                    <select id="ddlModule">
+                        <option value="Informatica">Informatica</option>
+                        <option value="Boekhouden">Boekhouden</option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <button id="btnToevoegen">Toevoegen</button>
+            </p>
+
+        </fieldset>
+        
+        <table id="tblInschrijvingen">
+            <caption>
+                <h1>Inschrijvingen</h1>
+            </caption>
+            <thead>
+                <tr>
+                    <th>Voornaam</th>
+                    <th>Achternaam</th>
+                    <th>Module</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>Informatica</td>
+                    <td><a href="#">Uitschrijven</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
